@@ -6,12 +6,14 @@ export class Register{
     readonly firstName:Locator
     readonly page:Page
     readonly registerBtn:Locator
+    readonly message:Locator
     constructor(page:Page){
         this.page=page
         this.maleRadioButton = page.locator("#gender-male")
         this.femaleRadioButton = page.locator("#gender-female")
         this.firstName=page.locator("#FirstName")
         this.registerBtn = page.locator("#register-button")
+        this.message = page.locator("span[for='LastName']")
     }
 
     async clickGenderMale(){
@@ -22,5 +24,8 @@ export class Register{
     }
     async clickRegister(){
         return await this.registerBtn.click()
+    }
+    get getMessage(){
+        return this.message.textContent()
     }
 }

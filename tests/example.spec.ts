@@ -11,6 +11,8 @@ test.describe('Demo Web Shop',()=>{
     await register.clickGenderMale()
     await register.setFirstName("Hellos")
     await register.clickRegister()
+    console.log(await register.getMessage)
+    expect(await register.getMessage).toBe("Last name is required.")
     await demowebshophomepage.page.pause()
   })
 })
