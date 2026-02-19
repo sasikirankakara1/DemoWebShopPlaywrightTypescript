@@ -9,6 +9,8 @@ test.describe('Demo Web Shop',()=>{
     expect(demowebshophomepage.page).toHaveTitle('Demo Web Shop. Register')
     await demowebshophomepage.clickRegister()
     await register.clickGenderMale()
+    await register.setFirstName("Hellos")
+    await register.clickRegister()
     await demowebshophomepage.page.pause()
   })
 })
