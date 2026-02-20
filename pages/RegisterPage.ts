@@ -7,6 +7,10 @@ export class Register{
     readonly page:Page
     readonly registerBtn:Locator
     readonly message:Locator
+    readonly email:Locator
+    readonly password:Locator
+    readonly confirmPassword:Locator
+    readonly lastName:Locator
     constructor(page:Page){
         this.page=page
         this.maleRadioButton = page.locator("#gender-male")
@@ -14,6 +18,10 @@ export class Register{
         this.firstName=page.locator("#FirstName")
         this.registerBtn = page.locator("#register-button")
         this.message = page.locator("span[for='LastName']")
+        this.email=page.locator("#Email")
+        this.password=page.locator("#Password")
+        this.confirmPassword=page.locator("#ConfirmPassword")
+        this.lastName=page.locator("#LastName")
     }
 
     async clickGenderMale(){
@@ -27,5 +35,17 @@ export class Register{
     }
     get getMessage(){
         return this.message.textContent()
+    }
+    async setLastName(lname:string){
+        return this.lastName.fill(lname)
+    }
+    async setPassword(passcode:string){
+        return this.password.fill(passcode)
+    }
+    async setConfirmPassword(confirmPass:string){
+        return this.confirmPassword.fill(confirmPass)
+    }
+    async setEmail(mail:string){
+        return this.email.fill(mail)
     }
 }
